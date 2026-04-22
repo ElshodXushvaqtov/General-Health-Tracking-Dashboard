@@ -1,0 +1,147 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "81ce8301f962fbab4c6b",
+  "position": {
+    "x": 408,
+    "y": 352,
+    "z": 7000,
+    "height": 368,
+    "width": 456,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "pieChart",
+    "query": {
+      "queryState": {
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "1-007-0035"
+                    }
+                  },
+                  "Property": "Avg_Death_Risk"
+                }
+              },
+              "queryRef": "1-007-0035.Avg_Death_Risk",
+              "nativeQueryRef": "Avg_Death_Risk",
+              "format": "0.00"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "1-007-0035"
+                    }
+                  },
+                  "Property": "Avg_Infant_Risk"
+                }
+              },
+              "queryRef": "1-007-0035.Avg_Infant_Risk",
+              "nativeQueryRef": "Avg_Infant_Risk",
+              "format": "0.00"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "1-007-0035"
+                    }
+                  },
+                  "Property": "Avg_Disease_Risk"
+                }
+              },
+              "queryRef": "1-007-0035.Avg_Disease_Risk",
+              "nativeQueryRef": "Avg_Disease_Risk",
+              "format": "0.00"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "1-007-0035"
+                    }
+                  },
+                  "Property": "Avg_Doctors_Risk"
+                }
+              },
+              "queryRef": "1-007-0035.Avg_Doctors_Risk",
+              "nativeQueryRef": "Avg_Doctors_Risk",
+              "format": "0.00"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "1-007-0035"
+                    }
+                  },
+                  "Property": "Avg_Beds_Risk"
+                }
+              },
+              "queryRef": "1-007-0035.Avg_Beds_Risk",
+              "nativeQueryRef": "Avg_Beds_Risk",
+              "format": "0.00"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "1-007-0035"
+                  }
+                },
+                "Property": "Avg_Death_Risk"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average Risk Contribution'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

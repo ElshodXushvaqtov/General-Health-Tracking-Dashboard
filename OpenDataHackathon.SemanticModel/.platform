@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "OpenDataHackathon"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "63d17ff7-953c-40c2-83ab-2420fd824923"
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "5645d5a6ad1ff4100988",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 6003,
+    "height": 720,
+    "width": 1280,
+    "tabOrder": 6003
+  },
+  "visual": {
+    "visualType": "hundredPercentStackedColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "1-007-0035"
+                    }
+                  },
+                  "Property": "Hududlar nomi"
+                }
+              },
+              "queryRef": "1-007-0035.Hududlar nomi",
+              "nativeQueryRef": "Hududlar nomi",
+              "active": true
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1-007-0035"
+                        }
+                      },
+                      "Property": "Health_Risk_Score"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Avg(1-007-0035.Health_Risk_Score)",
+              "nativeQueryRef": "Average of Health_Risk_Score"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1-007-0035"
+                        }
+                      },
+                      "Property": "Doctors_risk"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Avg(1-007-0035.Doctors_risk)",
+              "nativeQueryRef": "Average of Doctors_risk"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1-007-0035"
+                        }
+                      },
+                      "Property": "Beds_risk"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Avg(1-007-0035.Beds_risk)",
+              "nativeQueryRef": "Average of Beds_risk"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1-007-0035"
+                        }
+                      },
+                      "Property": "Disease_risk"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Avg(1-007-0035.Disease_risk)",
+              "nativeQueryRef": "Average of Disease_risk"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1-007-0035"
+                        }
+                      },
+                      "Property": "Infant_risk"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Avg(1-007-0035.Infant_risk)",
+              "nativeQueryRef": "Average of Infant_risk"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1-007-0035"
+                        }
+                      },
+                      "Property": "Death_risk"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Avg(1-007-0035.Death_risk)",
+              "nativeQueryRef": "Average of Death_risk"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "1-007-0035"
+                      }
+                    },
+                    "Property": "Health_Risk_Score"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Main Drivers of Healthcare Risk'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

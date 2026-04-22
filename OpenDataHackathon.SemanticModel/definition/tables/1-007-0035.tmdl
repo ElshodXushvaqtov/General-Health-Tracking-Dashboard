@@ -1,0 +1,345 @@
+table 1-007-0035
+	lineageTag: b2393881-1917-427d-9207-e861fd936a15
+
+	measure Avg_Risk = ```
+			AVERAGE('1-007-0035'[Health_Risk_Score])
+			
+			```
+		lineageTag: 6180d5fd-08e1-4fff-bec6-c03d5ce34f2f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Max_Risk = ```
+			MAX('1-007-0035'[Health_Risk_Score])
+			
+			```
+		lineageTag: 13b16928-c7e6-4c69-950b-6ebbc67a0eb2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Min_Risk = ```
+			MIN('1-007-0035'[Health_Risk_Score])
+			
+			```
+		lineageTag: c5e074e4-1ed6-478a-92f7-22710d2255b7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Avg_Death_Risk = ```
+			AVERAGE('1-007-0035'[Death_risk])
+			
+			```
+		lineageTag: 75d37cf6-6029-4250-bf50-3ed9e0e43d53
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Avg_Infant_Risk = ```
+			AVERAGE('1-007-0035'[Infant_risk])
+			
+			```
+		lineageTag: ab30caed-62e8-4ce8-8643-4e7f1bcc86d6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Avg_Disease_Risk = ```
+			AVERAGE('1-007-0035'[Disease_risk])
+			
+			```
+		lineageTag: d565afb8-d07d-47af-8f8e-4a4eef866119
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Avg_Doctors_Risk = ```
+			AVERAGE('1-007-0035'[Doctors_risk])
+			
+			```
+		lineageTag: 620d4444-66dd-418b-b857-517bfea46cc9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Avg_Beds_Risk = ```
+			AVERAGE('1-007-0035'[Beds_risk])
+			
+			```
+		lineageTag: 0a427370-435c-4ea1-8c2b-858fe70e132b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Capacity_Index = ```
+			
+			AVERAGE('1-007-0035'[DocsPer10k]) +
+			AVERAGE('1-007-0035'[BedsPer10k])
+			
+			```
+		lineageTag: 57cc890c-1294-4773-b7ed-566f2e3c405f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Burden_Index = ```
+			
+			AVERAGE('1-007-0035'[DeathRate]) +
+			AVERAGE('1-007-0035'[InfantMortality]) +
+			AVERAGE('1-007-0035'[DiseasePer100k])
+			
+			```
+		lineageTag: d9c7502b-284b-4c1c-a7a1-406d618e0348
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column №
+		dataType: int64
+		formatString: 0
+		lineageTag: e2f8ee57-8130-4c55-90ff-e33691aa4ff9
+		summarizeBy: sum
+		sourceColumn: №
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hududlar nomi'
+		dataType: string
+		lineageTag: 0ef95bfe-7d6d-46a8-acee-fbc093dcf2d8
+		summarizeBy: none
+		sourceColumn: Hududlar nomi
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeathRate
+		dataType: double
+		lineageTag: 8baaf30c-9a37-4537-84c3-4aa0100e13f6
+		summarizeBy: sum
+		sourceColumn: DeathRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DocsPer10k
+		dataType: double
+		lineageTag: 3ec47f79-b32e-412e-aa43-13545b878836
+		summarizeBy: sum
+		sourceColumn: DocsPer10k
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BedsPer10k
+		dataType: double
+		lineageTag: 02483eab-a664-45e9-8320-489e29b20aad
+		summarizeBy: sum
+		sourceColumn: BedsPer10k
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DiseasePer100k
+		dataType: double
+		lineageTag: 64f517fb-eca7-42ee-bbdd-94d9a490f67a
+		summarizeBy: sum
+		sourceColumn: DiseasePer100k
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column InfantMortality
+		dataType: double
+		lineageTag: 5bb2cb4e-36ab-4905-b5be-a0070f0a46f8
+		summarizeBy: sum
+		sourceColumn: InfantMortality
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Death_norm = ```
+			
+			VAR minV = MINX(ALL('1-007-0035'), '1-007-0035'[DeathRate])
+			VAR maxV = MAXX(ALL('1-007-0035'), '1-007-0035'[DeathRate])
+			RETURN DIVIDE('1-007-0035'[DeathRate] - minV, maxV - minV)
+			
+			```
+		lineageTag: 4bcd16b1-4307-461a-b6a6-76e6b7b7c392
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Infant_norm = ```
+			
+			VAR minV = MINX(ALL('1-007-0035'), '1-007-0035'[InfantMortality])
+			VAR maxV = MAXX(ALL('1-007-0035'), '1-007-0035'[InfantMortality])
+			RETURN DIVIDE('1-007-0035'[InfantMortality] - minV, maxV - minV)
+			
+			```
+		lineageTag: ad0f2c80-eac2-4e94-91b2-577d99c81a91
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Disease_norm = ```
+			
+			VAR minV = MINX(ALL('1-007-0035'), '1-007-0035'[DiseasePer100k])
+			VAR maxV = MAXX(ALL('1-007-0035'), '1-007-0035'[DiseasePer100k])
+			RETURN DIVIDE('1-007-0035'[DiseasePer100k] - minV, maxV - minV)
+			
+			```
+		lineageTag: 27618dfd-6999-4132-b3ea-70f7204bd329
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Doctors_norm = ```
+			
+			VAR minV = MINX(ALL('1-007-0035'), '1-007-0035'[DocsPer10k])
+			VAR maxV = MAXX(ALL('1-007-0035'), '1-007-0035'[DocsPer10k])
+			RETURN DIVIDE('1-007-0035'[DocsPer10k] - minV, maxV - minV)
+			
+			```
+		lineageTag: 6259e547-dabb-46cf-a61d-41719f680a1f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Beds_norm = ```
+			
+			VAR minV = MINX(ALL('1-007-0035'), '1-007-0035'[BedsPer10k])
+			VAR maxV = MAXX(ALL('1-007-0035'), '1-007-0035'[BedsPer10k])
+			RETURN DIVIDE('1-007-0035'[BedsPer10k] - minV, maxV - minV)
+			
+			```
+		lineageTag: 3b7dc841-9ebb-4fcb-9679-5156b6366a49
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Doctors_risk = ```
+			1 - '1-007-0035'[Doctors_norm]
+			
+			```
+		lineageTag: e50c0627-5693-4ded-b972-03ab3328ae63
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Beds_risk = ```
+			1 - '1-007-0035'[Beds_norm]
+			
+			```
+		lineageTag: d624ffb7-f352-43bd-a0cd-105f28b2f244
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Death_risk = ```
+			'1-007-0035'[Death_norm]
+			
+			```
+		lineageTag: e3614771-aa87-499d-82ec-cd050b87d3d5
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Infant_risk = ```
+			'1-007-0035'[Infant_norm]
+			
+			```
+		lineageTag: 7e335cb6-fdde-47e6-8350-f1cdd45b608f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Disease_risk = ```
+			'1-007-0035'[Disease_norm]
+			
+			```
+		lineageTag: 6cb8fda3-8ba1-4efb-be47-535eafe5f346
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Health_Risk_Score = ```
+			
+			(
+			0.25 * '1-007-0035'[Death_risk] +
+			0.20 * '1-007-0035'[Infant_risk] +
+			0.20 * '1-007-0035'[Disease_risk] +
+			0.20 * '1-007-0035'[Doctors_risk] +
+			0.15 * '1-007-0035'[Beds_risk]
+			) * 100
+			
+			```
+		lineageTag: 50b46968-e438-416a-8e95-5447e4eedcf2
+		summarizeBy: sum
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Risk_Level = ```
+			
+			SWITCH(
+			    TRUE(),
+			    '1-007-0035'[Health_Risk_Score] >= 70, "URGENT",
+			    '1-007-0035'[Health_Risk_Score] >= 50, "MEDIUM",
+			    "STABLE"
+			)
+			
+			```
+		lineageTag: 0a9213ec-06b5-430b-b167-7c179ed13945
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 1-007-0035 = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\ACER\Downloads\O’lim ko‘rsatkichi 1000 aholiga nisbatan.xlsx"), null, true),
+				    #"1-007-0035_Sheet" = Source{[Item="1-007-0035",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"1-007-0035_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"№", Int64.Type}, {"Hududlar nomi", type text}, {"O’lim koeffistienti - Jami 1000 aholiga nisbatan", type number}}),
+				    #"Merged Queries" = Table.NestedJoin(#"Changed Type", {"Hududlar nomi"}, #"1-007-0026", {"Hududlar nomi"}, "1-007-0026", JoinKind.LeftOuter),
+				    #"Expanded 1-007-0026" = Table.ExpandTableColumn(#"Merged Queries", "1-007-0026", {"Shifokorlar. 10 000 аhоliga nisbatan taminoti."}, {"1-007-0026.Shifokorlar. 10 000 аhоliga nisbatan taminoti."}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Expanded 1-007-0026",{{"1-007-0026.Shifokorlar. 10 000 аhоliga nisbatan taminoti.", "DocsPer10k"}}),
+				    #"Merged Queries1" = Table.NestedJoin(#"Renamed Columns", {"Hududlar nomi"}, #"1-007-0022", {"Hududlar nomi"}, "1-007-0022", JoinKind.LeftOuter),
+				    #"Expanded 1-007-0022" = Table.ExpandTableColumn(#"Merged Queries1", "1-007-0022", {"Jami.10 000 аhоliga nisbatan taminoti."}, {"1-007-0022.Jami.10 000 аhоliga nisbatan taminoti."}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Expanded 1-007-0022",{{"1-007-0022.Jami.10 000 аhоliga nisbatan taminoti.", "BedsPer10k"}}),
+				    #"Merged Queries2" = Table.NestedJoin(#"Renamed Columns1", {"Hududlar nomi"}, #"1-007-0033", {"Hududlar nomi"}, "1-007-0033", JoinKind.LeftOuter),
+				    #"Expanded 1-007-0033" = Table.ExpandTableColumn(#"Merged Queries2", "1-007-0033", {"100 000 аhоliga nisbatan"}, {"1-007-0033.100 000 аhоliga nisbatan"}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Expanded 1-007-0033",{{"1-007-0033.100 000 аhоliga nisbatan", "DiseasePer100k"}}),
+				    #"Merged Queries3" = Table.NestedJoin(#"Renamed Columns2", {"Hududlar nomi"}, #"1-007-0011", {"Hududlar nomi"}, "1-007-0011", JoinKind.LeftOuter),
+				    #"Expanded 1-007-0011" = Table.ExpandTableColumn(#"Merged Queries3", "1-007-0011", {"Go'daklar o'limi 1000 tirik tug'ilishga"}, {"1-007-0011.Go'daklar o'limi 1000 tirik tug'ilishga"}),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Expanded 1-007-0011",{{"1-007-0011.Go'daklar o'limi 1000 tirik tug'ilishga", "InfantMortality"}, {"O’lim koeffistienti - Jami 1000 aholiga nisbatan", "DeathRate"}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Renamed Columns3", each ([Hududlar nomi] <> "O'zbekiston Respublikasi")),
+				    #"Replaced Value" = Table.ReplaceValue(#"Filtered Rows","Qoraqalpog'iston Respublikasi","Республика Каракалпакстан",Replacer.ReplaceText,{"Hududlar nomi"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Replaced Value",{{"BedsPer10k", type number}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

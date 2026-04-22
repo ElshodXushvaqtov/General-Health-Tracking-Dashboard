@@ -1,0 +1,53 @@
+table 1-007-0026
+	lineageTag: 8d6097d5-ef77-4a67-8b0d-ed80152040c0
+
+	column №
+		dataType: int64
+		formatString: 0
+		lineageTag: cc5f3e40-28df-45d8-bc7f-90e560f2591f
+		summarizeBy: sum
+		sourceColumn: №
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hududlar nomi'
+		dataType: string
+		lineageTag: 701cd80c-a636-450e-b1f5-e160a9f0a736
+		summarizeBy: none
+		sourceColumn: Hududlar nomi
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shifokorlar. 10 000 аhоliga nisbatan taminoti.'
+		dataType: double
+		lineageTag: c40872dc-6836-4abf-a10c-b4d26478f55a
+		summarizeBy: sum
+		sourceColumn: Shifokorlar. 10 000 аhоliga nisbatan taminoti.
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Orta tibbiyot hodimlari. 10 000 аhоliga nisbatan'
+		dataType: double
+		lineageTag: 70a5e773-b6be-4699-b7d0-57436772a963
+		summarizeBy: sum
+		sourceColumn: Orta tibbiyot hodimlari. 10 000 аhоliga nisbatan
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 1-007-0026 = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\ACER\Downloads\Vrach va o‘rta tibbiyot xodimlari soni va 10 ming aholiga nisbatan ko‘rsatkichi.xlsx"), null, true),
+				    #"1-007-0026_Sheet" = Source{[Item="1-007-0026",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"1-007-0026_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"№", Int64.Type}, {"Hududlar nomi", type text}, {"Shifokorlar. 10 000 аhоliga nisbatan taminoti.", type number}, {"Orta tibbiyot hodimlari. 10 000 аhоliga nisbatan", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

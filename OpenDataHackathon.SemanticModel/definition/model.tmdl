@@ -1,0 +1,22 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: ru-RU
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["1-007-0011","1-007-0022","1-007-0026","1-007-0035","1-007-0033"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 1-007-0011
+ref table 1-007-0022
+ref table 1-007-0026
+ref table 1-007-0035
+ref table 1-007-0033
+
+ref cultureInfo en-US
+
