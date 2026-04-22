@@ -50,7 +50,9 @@ It includes:
 
 ## 📷 Dashboard Preview
 
-(Add screenshots of your dashboard here)
+![Dashboard](OpenDataHackathon_page-0001.jpg)
+![Dashboard](OpenDataHackathon_page-0002.jpg)
+
 
 ---
 
