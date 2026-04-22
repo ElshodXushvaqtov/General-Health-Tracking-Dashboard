@@ -6,6 +6,8 @@ This project presents an interactive **Health Tracking Dashboard** built in Powe
 
 The goal is to transform raw public data into meaningful insights that can support awareness and better decision-making in the context of health and lifestyle.
 
+> Note: All datasets are taken from data.egov.uz
+
 ---
 
 ## 🎯 Objectives
